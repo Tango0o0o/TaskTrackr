@@ -1,0 +1,23 @@
+{%extends "Main/base.html"%}
+
+{%block title%} {{user_.username}}'s profile {%endblock%}
+{%block content%}
+    <div class="small_container"> 
+        <h1 style="display: inline-block;">{{user_.username}}'s profile</h1>
+        <hr class="h-25">
+        <div style="right: 0;position: absolute;margin-right: 31.5%;">
+            {% if user_ == user%}
+                <a href="{% url 'edit_profile' %}"><button type="button" class="btn btn-primary">Edit profile</button></a>
+            {% endif %}
+        </div>
+        <img id="big_profile_pic" class="rounded-circle" src="{{user_.profile.profile_pic.url}}">
+        <br>
+        <div>
+            <h2 >Date of birth: {{user_.profile.DOB}} <h2>
+            <br>
+            <h2 >Gender: {{user_.profile.gender}} <h2> 
+            <h2 >Special code: {{user.profile.code}}<h2> 
+        </div>
+    </div>
+
+{%endblock%}

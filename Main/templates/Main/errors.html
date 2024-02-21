@@ -1,0 +1,15 @@
+{%extends "Main/base.html"%}
+
+{%block title%} Error 500 {%endblock%}
+{%block content%}
+    <div class="small_container"> 
+        <h1>Unkown error</h1>
+        <hr class="h-25">
+        <h3>Sorry, we don't know what went wrong either, try <a>reporting</a> this error</h3>
+        {% if messages%}
+            {% for message in messages%}
+                {{message}}
+            {% endfor%}
+        {%endif%}
+    </div>
+{%endblock%}

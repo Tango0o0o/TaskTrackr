@@ -1,0 +1,18 @@
+{%extends "Main/base.html"%}
+
+
+{%block title%} Home {%endblock%}
+
+{% block head%}
+    <link rel="stylesheet" href="/static/Home.css" type="text/css">
+{%endblock%}
+
+{%block content%}
+    <h1>Link to discord</h1>
+    <hr class="h-25">
+    <form action="{% url 'link_discord'%}" method="post"> 
+        {% csrf_token %}
+        <label for="discord_name">Discord name</label>
+        <input name="discord-name" id="discord_name" class="form-control" type="text">
+    </form>
+{%endblock%}

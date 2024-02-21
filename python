@@ -1,0 +1,3 @@
+Migrations for 'Users':
+  Users\migrations\0010_alter_profile_profile_pic.py
+    - Alter field profile_pic on profile

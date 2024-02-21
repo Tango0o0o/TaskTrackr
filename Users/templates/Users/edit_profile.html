@@ -1,0 +1,39 @@
+{% extends "Main/base.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %} Edit profile {% endblock %}
+{% block content %}
+
+    
+    <div class="small_container">
+        <h1>Profile</h1>
+        <hr class="h-25">
+        <img id="big_profile_pic" class="rounded-circle" src="{{user.profile.profile_pic.url}}">
+        <form method="post" action="{% url 'edit_profile' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{profile_form|crispy}}
+
+            <label for="datetimepicker1">Date of birth</label>
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                {{ form.date }}
+                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+            
+            <script>
+            $(function () {
+                $("#datetimepicker1").datetimepicker({
+                format: 'DD/MM/YYYY HH:mm',
+                });
+            });
+            </script>
+              
+            <br>
+            
+            <button type="submit" class="btn btn-success">Save changes</button>
+        </form>
+    </div>
+
+ 
+{% endblock %}

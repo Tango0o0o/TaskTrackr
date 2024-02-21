@@ -1,0 +1,56 @@
+{%extends "Main/base.html"%}
+
+
+{%block title%} My lists {%endblock%}
+
+{% block head%}
+     <link rel="stylesheet" href="/static/Lists.css" type="text/css">
+     <link rel="stylesheet" href="/static/Shared_lists.css" type="text/css">
+{%endblock%}
+
+{%block content%}
+
+    <h1>Lists shared with me</h1>    
+    <hr class="hr-25">
+    <div class="list_container">
+        {% for list in lists%}
+                <div class="list_box">
+                    <form action="{% url 'save_list' saved_id=list.id%}" method="post">
+                        {% csrf_token %}
+                        <div class="list_details">
+                            <input name="list-name" class="form-control" type="text" value="{{list.name}}">
+                            &nbsp;
+                            <img class="profile_pic" src="{{list.owner.profile.profile_pic.url}}">
+                            &nbsp;
+                            <a href="{% url 'view_profile' user_id=list.owner.id %}"><span id="created_by">{{list.owner}}</span></a>
+                        </div>
+                        <br>
+                        <div class="button_container">
+                            <a href="{% url 'my_list' list_id=list.id%}"><button style="grid-area: 1 / 1 / span 2 / 1;" type="button" class="btn btn-primary">View</button></a>
+                            <a href="{% url 'remove_self' list_id=list.id%}"><button type="button" class="btn btn-danger">Leave</button></a>
+                        </div>
+                        {% if saved_id == list.id %}
+                            <img src="/media/icons/Checkmark.png/" class="saved_checkmark_{{list.id}}">
+                        {%endif%}
+                    </form>
+                    <hr>
+                    <div>
+                        {% for user in list.users.all%}
+                            <a href="/profile/{{user.id}}"><img class="profile_pic" src="{{user.profile.profile_pic.url}}"></a>
+                        {%endfor%}
+                    </div>
+                    <!-- <br>
+                    <form action="{% url 'add_user' list_id=list.id %}" method="post">
+                        {% csrf_token %}
+                        <input name="username" class="form-control" type="text" placeholder="Username">
+                        <br>
+                        <button type="submit" class="btn btn-success">Add user</button>
+                        <button type="submit" formaction="{% url 'remove_user' list_id=list.id %}" class="btn btn-danger">Remove user</button>
+                    </form> -->
+                </div>
+        {%endfor%}
+    </div>
+
+    <script src="/static/Lists.js"></script>
+
+{%endblock%}

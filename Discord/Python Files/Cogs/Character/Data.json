@@ -1,0 +1,15 @@
+{
+    "655855438075658250": {
+        "Characters": {
+            "Franklin": {
+                "Money": {
+                    "Bank": 0,
+                    "Cash": 0
+                },
+                "Gender": "Male",
+                "Skin color": "Black"
+            }
+        },
+        "Selected": "Franklin"
+    }
+}
