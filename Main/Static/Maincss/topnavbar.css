@@ -1,0 +1,47 @@
+body { /* the body element (master element, top of hierachy) */
+
+    margin: 0px; /* Removes gap between container and screen */
+    background-color: var(--alice-blue-hsl); /* backgrounf colour of aliceblue in hue saturation lightness */
+
+    font-family: "Roboto", sans-serif; /* font style / family */
+    font-weight: 400; /* thickness of the font */
+    font-style: normal; /* no funny stuff (italics) etc */
+}
+
+.navbar ul { /* Selects the navbar class then the unordered list element */
+
+    background-color: white; /*Sets the background colour to white */
+    list-style-type: none; /* Removes bullet points */
+    
+    margin: 0px; /* No margins, sticks right to the top and left of the screen */
+    padding: 0;  /* Sticks the content to the edge of the container */
+
+    overflow: hidden; /* Stops the background going invisible, because before going off screen hides whole thing, now just clips it */
+}
+
+.navbar a { /* Selects the navbar class then the link element */
+
+    display: block; /* Gives each on its own full space */
+    
+    padding: 15px; /* Pushes the content 15px inwards at all sides */
+    float: left; /* Allows an element to float to the left, so then all of the elements coming next flow next to it */
+    
+    color: black; /* Text colour black */
+    text-align: center; /* Put the text in the center of the container */
+    text-decoration: none; /* plain, basic text */
+
+    border-right: 2px solid var(--alice-blue-hsl); /* Set the right side border to be 2 pixels wide, solid and aliceblue colour */
+    
+}
+
+.navbar a:hover { /* Navbar class then link element on the hover pseudoclass */
+    background-color: var(--alice-blue-hsl-hover); /*  set background color to alice blue but slightly darker */
+    transition: 1s; /* Take 1 second to transition the color */
+}
+
+.nav-icon {
+    /* make the image much smaller 20px both ways */
+    width: 20px;
+    height: 20px;
+    float: right; /* let the text flow directly to the left of it */
+}
