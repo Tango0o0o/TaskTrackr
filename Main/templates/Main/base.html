@@ -17,23 +17,27 @@
 
 <body>
     
-  <nav class="navbar">
+  <nav class="navbar"> <!-- Simply just a container, to make selection better -->
 
-    <ul>
+    <div>
       
-      <li>
         <a class="primary-tab" id="siteid" href="{% url 'home' %}">
           TaskTrackr &nbsp;
           <img class="nav-icon" src="/media/icons/Checkmark.png">
         </a>
-      </li>
+
+          
+        <a id="siteid mobile"><img class="nav-icon mobile" src="/media/icons/Checkmark.png"></a>
+      
       
       {% if not user.is_authenticated %}
-        <li><a class="primary-tab" href="{% url 'login' %}">Login</a></li>
-        <li><a class="primary-tab" href="{% url 'register' %}">Register</a></li>
+          <div class="center">
+            <a class="primary-tab" href="{% url 'login' %}">Login</a>
+            <a class="primary-tab" href="{% url 'register' %}">Register</a>
+          </div>
       {% endif %}
 
-    </ul>
+    </div>
 
   </nav>
 

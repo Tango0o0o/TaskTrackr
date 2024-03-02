@@ -1,4 +1,5 @@
 :root {
     --alice-blue-hsl: hsl(208, 100%, 97%);
     --alice-blue-hsl-hover: hsl(208, 100%, 95%);
+    --alice-blue-hsl-borders: hsl(208, 100%, 93%);
 }
