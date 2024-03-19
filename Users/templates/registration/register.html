@@ -1,5 +1,10 @@
 {%extends "Main/base.html"%}
 
+{% block css %}
+    <link type="text/css" rel="stylesheet" href="/static/registration/forms.css">
+    <link type="text/css" rel="stylesheet" href="/static/registration/register.css">
+{% endblock %}
+
 {%block title%} Register {%endblock%}
 
 
@@ -9,13 +14,43 @@
             <a href="/">Nice try ;), go to home</a>
         </div>
     {%else%}
-        <div class="small_container">
-            <h1>Register</h1>
-            <hr class="h-25">
-            <form method="post" action="/register/">
+        <div class="form-container">
+            
+            <form method="post" action="{% url 'register' %}">
                 {% csrf_token %}
-                {{form}}
-                <button type="submit" class="btn btn-success">Register</button>
+                
+                <div class="flex-group">
+                    <h1>Register for TaskTrackr</h1>
+                    <hr>
+                </div>
+
+                <div class="input-group flex-group">
+                    <div>
+                        <label for="{{form.first_name.id}}">{{form.first_name.label}}</label>
+                        {{form.first_name}}
+                    </div>
+                    <div>
+                        <label for="{{form.last_name.id}}">{{form.last_name.label}}</label>
+                        {{form.last_name}}
+                    </div>
+                </div>
+
+                <div class="input-group flex-group">
+                    <div>
+                        <label for="{{form.email.id}}">{{form.username.label}}</label>
+                        {{form.username}}
+                    </div>
+
+                    <div>
+                        <label for="{{form.password1.id}}">{{form.password1.label}}</label>
+                        {{form.password1}}
+                    </div>
+                    
+                </div>
+
+                <button type="submit" class="btn-success interact">Register</button>
+
+
             </form>
         </div>
     {%endif%}

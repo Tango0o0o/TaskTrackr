@@ -3,3 +3,19 @@
     --alice-blue-hsl-hover: hsl(208, 100%, 95%);
     --alice-blue-hsl-borders: hsl(208, 100%, 93%);
 }
+
+body { /* the body element (master element, top of hierachy) */
+
+    margin: 0px; /* Removes gap between container and screen */
+    background-color: var(--alice-blue-hsl); /* backgrounf colour of aliceblue in hue saturation lightness */
+
+}
+
+* { 
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Everything has this font */
+    font-weight: 400; /* thickness of the font */
+    font-style: normal; /* no funny stuff (italics) etc */
+
+    max-width: 100%;
+    overflow-wrap: break-word;
+}

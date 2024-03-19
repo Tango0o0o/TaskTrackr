@@ -3,15 +3,20 @@
 
 {%block title%} Home {%endblock%}
 
-{% block head%}
-    <link rel="stylesheet" href="/static/Home.css" type="text/css">
+{% block css%}
+    <link rel="stylesheet" href="/static/Maincss/Home.css" type="text/css">
 {%endblock%}
 
 {%block content%}
-     
-        <h1>Home</h1>
-        <hr class="h-25">
-        <div class="intro">
-            Welcome, {{user}}
-        </div>
+    
+    <div class="reviews-grid">
+
+        <article class="review" id="review-1">TaskTrackr has revolutionized my productivity! With its intuitive interface and customizable features, I can easily organize my tasks and prioritize them effectively. The reminders keep me on track, ensuring I never miss a deadline. Highly recommended for anyone looking to boost their efficiency.</article>
+        <article class="review" id="review-2">I've tried numerous task management apps, but TaskTrackr stands out for its simplicity and effectiveness. The clean layout makes it easy to navigate, and the ability to categorize tasks helps me stay organized. Plus, the synchronization across devices ensures I'm always up to date, whether I'm at my desk or on the go.</article>
+        <article class="review" id="review-3">TaskTrackr has become an indispensable tool for both my personal and professional life. It's incredibly user-friendly, allowing me to create, edit, and complete tasks with ease. The progress tracking feature motivates me to stay focused and reach my goals. Thanks to TaskTrackr, I've never been more productive!</article>
+        <article class="review" id="review-4">"I've been using TaskTrackr for a few months now, and it has significantly improved my time management skills. The ability to set deadlines and receive notifications keeps me accountable and prevents procrastination. I also appreciate the collaborative features, which make it easy to coordinate tasks with my team. Overall, TaskTrackr has helped me streamline my workflow and achieve better work-life balance.</article>
+        <article class="review" id="review-5">TaskTrackr has exceeded my expectations in every way. Not only does it help me stay organized, but it also provides valuable insights into my productivity habits. The analytics dashboard allows me to identify areas for improvement and optimize my workflow accordingly. Whether you're a busy professional or a student juggling multiple responsibilities, TaskTrackr is a game-changer.</article>
+
+    </div>
+
 {%endblock%}

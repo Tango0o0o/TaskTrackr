@@ -1,8 +1,11 @@
 {%extends "Main/base.html"%}
 
-{%block title%} Login {%endblock%}
+{% block css %}
+    <link type="text/css" rel="stylesheet" href="/static/registration/forms.css">
+    <link type="text/css" rel="stylesheet" href="/static/registration/register.css">
+{% endblock %}
 
-{%load crispy_forms_tags%}
+{%block title%} Login {%endblock%}
 
 {%block content%}
     
@@ -12,11 +15,25 @@
         </div>
     {%else%}
         <div class="small_container">
-            <h1>Login</h1>
-            <hr class="h-25">
-            <form method="post" action="/login/">
+            
+            <form method="post" action="{% url 'login' %}">
+                <div class="flex-group">
+                    <h1>Login</h1>
+                    <hr>
+                </div>
                 {% csrf_token %}
-                {{form|crispy}}
+
+                <div class="input-group flex-group">
+                    <div>
+                        <label for="{{form.username.id}}">{{form.username.label}}</label>
+                        {{form.username}} <!-- Is actually an email acting as a username; see forms.py -->
+                    </div>
+                    <div>
+                        <label for="{{form.password.id}}">{{form.password.label}}</label>
+                        {{form.password}}
+                    </div>
+                </div>
+
                 <button type="submit" class="btn btn-success">Login</button>
             </form>
         </div>

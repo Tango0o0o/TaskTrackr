@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login as login_user
-from .forms import Registration, ProfileForm, DateForm
+from django.contrib.auth import authenticate
+from .forms import Registration, ProfileForm, DateForm, LoginForm
 from django.http import HttpResponse
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
@@ -14,12 +15,14 @@ def register(req):
         return render(req, "registration/register.html", {"form":form})
     else:
         new_user = Registration(req.POST)
-        if new_user.is_valid():
+
+        if new_user.is_valid(): # if user info valid, then login user
             user = new_user.save()
-            login_user(req, user)
+            login_user(req, user) 
         else:
-            return redirect("/register/")
-        return redirect(f"{reverse('edit_profile')}")
+            return redirect(f"{reverse('register')}") # if not back to register
+        
+        return redirect(f"{reverse('home')}") # redirect to home page if valid
 
 def edit_profile(req):
     
@@ -57,6 +60,19 @@ def edit_profile(req):
 def view_profile(req,user_id):
     user = User.objects.get(id=user_id)
     return render(req, "Users/profile.html", {"user_":user})
+
+def login(req):
+    
+    if req.POST:
+        user = authenticate(req, username=req.POST["username"], password=req.POST["password"]) # checking if user exists
+
+        if user is not None: # login user if so
+            login_user(req, user)
+            return redirect(f"{reverse('home')}")
+        
+    # redirect to login otherwise
+    loginform = LoginForm()
+    return render(req, "registration/login.html", {"form" : loginform}) 
 
 @csrf_exempt
 def discord_login(req):
