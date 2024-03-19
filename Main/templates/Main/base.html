@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--what this do-->
 
   <link type="text/css" rel="stylesheet" href="/static/Maincss/base.css">
   <link type="text/css" rel="stylesheet" href="/static/Maincss/topnavbar.css">
+
+  {% block css %}
+  
+  {% endblock %}
 
   <title>TaskTrackr |{% block title %} {% endblock %}</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
   <link rel="icon" href="/media/icons/Checkmark.png">
 </head>
 
 <body>
     
-  <nav class="navbar">
+  <nav class="navbar"> <!-- Simply just a container, to make selection better -->
 
-    <ul>
       
-      <li>
         <a class="primary-tab" id="siteid" href="{% url 'home' %}">
-          TaskTrackr &nbsp;
           <img class="nav-icon" src="/media/icons/Checkmark.png">
         </a>
-      </li>
+
+          
+        <!-- <a id="siteid mobile"><img class="nav-icon mobile" src="/media/icons/Checkmark.png"></a> -->
+      
       
       {% if not user.is_authenticated %}
-        <li><a class="primary-tab" href="{% url 'login' %}">Login</a></li>
-        <li><a class="primary-tab" href="{% url 'register' %}">Register</a></li>
+          <div class="center">
+            <a class="primary-tab" href="{% url 'login' %}">Login</a>
+            <a class="primary-tab" href="{% url 'register' %}">Register</a>
+          </div>
       {% endif %}
 
-    </ul>
 
   </nav>
 
-    <script src="/static/Mainjs/base.js"></script>
+  <main>
+    {%block content %}
+
+    {% endblock %}
+  </main>
+
+  <script src="/static/Mainjs/base.js"></script>
 </body>

@@ -1,0 +1,77 @@
+.reviews-grid {
+    /* Grid layout with a gap of 1.5 rem */
+    display: grid; 
+    gap: 1.5rem;
+
+    grid-template-areas: /* stacked layout, mobile first */
+        "one"
+        "two"
+        "three"
+        "four"
+        "five"
+    ;
+
+    /* 10px margin everywhere */
+    margin: 10px;
+}
+
+.reviews-grid > * {
+
+    /* Everything in the grid will have this */
+    border-radius: 5px;
+    padding: 10px;
+
+    box-shadow: 0 4px    8px 0 rgba(0, 0, 0, 0.2)
+    ;
+}
+
+
+/* Setting colors for each review */
+/* The grid-area specifies which area each element will occupy */
+#review-1 {
+    background-color: rgb(255, 218, 185);
+    grid-area: one;
+}
+
+#review-2 {
+    background-color: rgb(220, 208, 255);
+    grid-area: two;
+}
+
+#review-3 {
+    background-color: rgb(196, 255, 211);
+    grid-area: three;
+}
+
+#review-4 {
+    background-color: rgb(255, 228, 225);
+    grid-area: four;
+}
+
+#review-5 {
+    background-color: rgb(173, 216, 230);
+    grid-area: five;
+}
+
+/* By default, none of these will apply; until the screen reaches this min width */
+/* So default for smaller screens is stacked. larger screens are more laid out */
+
+/* If the screen has a minimum width of __em the apply these */
+@media (min-width: 30em) {
+    .reviews-grid {
+        grid-template-areas: /* setting out the areas layout */ 
+
+            "one one"
+            "two three"
+            "four five"
+    }
+}
+
+@media (min-width: 50em) {
+    .reviews-grid {
+        grid-template-areas: /* setting out the areas layout */
+
+            "one one two five"
+            "three three four five"
+    }
+}
