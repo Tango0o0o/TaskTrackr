@@ -1,47 +1,62 @@
-body { /* the body element (master element, top of hierachy) */
+nav {
 
-    margin: 0px; /* Removes gap between container and screen */
-    background-color: var(--alice-blue-hsl); /* backgrounf colour of aliceblue in hue saturation lightness */
+    background-color: white;
 
-    font-family: "Roboto", sans-serif; /* font style / family */
-    font-weight: 400; /* thickness of the font */
-    font-style: normal; /* no funny stuff (italics) etc */
+    height: 10%; /* 10% of screen height */
+
+    display: flex;
+    flex-wrap: wrap; /* for smaller screens allow wrapping */
+    gap: 1%; /* Gap between each flex item */
+    
+    border-bottom: 2px solid var(--alice-blue-hsl-borders);
+
+    position: relative; /* For media query */
+    max-width: 100%;
 }
 
-.navbar ul { /* Selects the navbar class then the unordered list element */
-
-    background-color: white; /*Sets the background colour to white */
-    list-style-type: none; /* Removes bullet points */
-    
-    margin: 0px; /* No margins, sticks right to the top and left of the screen */
-    padding: 0;  /* Sticks the content to the edge of the container */
-
-    overflow: hidden; /* Stops the background going invisible, because before going off screen hides whole thing, now just clips it */
+/* taking awa the actual link design */
+nav a {
+    text-decoration: none;
+    color: black;
+    padding: 11px;
 }
 
-.navbar a { /* Selects the navbar class then the link element */
-
-    display: block; /* Gives each on its own full space */
-    
-    padding: 15px; /* Pushes the content 15px inwards at all sides */
-    float: left; /* Allows an element to float to the left, so then all of the elements coming next flow next to it */
-    
-    color: black; /* Text colour black */
-    text-align: center; /* Put the text in the center of the container */
-    text-decoration: none; /* plain, basic text */
-
-    border-right: 2px solid var(--alice-blue-hsl); /* Set the right side border to be 2 pixels wide, solid and aliceblue colour */
-    
-}
-
-.navbar a:hover { /* Navbar class then link element on the hover pseudoclass */
-    background-color: var(--alice-blue-hsl-hover); /*  set background color to alice blue but slightly darker */
-    transition: 1s; /* Take 1 second to transition the color */
+/* visual hovering indicator */
+nav a:hover{
+    background-color: var(--alice-blue-hsl-hover);
+    transition: 0.5s;
 }
 
 .nav-icon {
-    /* make the image much smaller 20px both ways */
-    width: 20px;
-    height: 20px;
-    float: right; /* let the text flow directly to the left of it */
+    max-width: 25px;
+    max-height: 20px;
+}
+
+#siteid {
+    height: 19px;
+}
+
+/* centered container a flex box to allow wrapping */
+.center {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* padding looked a bit weird in the site id, fixing it */
+
+
+/* media queries just to fine tune the position of the centered items */
+@media (min-width: 675px) {
+    .center {
+        margin-left: 42%;
+        position: absolute;
+    }
+}
+
+@media (580px < width < 674px) {
+    .center {
+        margin-left: 40%;
+        position: absolute;
+    }
 }
