@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import login as login_user
 from django.contrib.auth import authenticate
@@ -20,8 +21,9 @@ def register(req):
             user = new_user.save()
             login_user(req, user) 
         else:
+            print(new_user.errors)
             return redirect(f"{reverse('register')}") # if not back to register
-        
+
         return redirect(f"{reverse('home')}") # redirect to home page if valid
 
 def edit_profile(req):
@@ -69,6 +71,7 @@ def login(req):
         if user is not None: # login user if so
             login_user(req, user)
             return redirect(f"{reverse('home')}")
+
         
     # redirect to login otherwise
     loginform = LoginForm()

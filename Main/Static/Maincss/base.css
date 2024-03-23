@@ -1,7 +1,17 @@
 :root {
+
+    --white: white;
+
+    --submit-btn-rgb: rgb(8, 148, 108);
+    --link-blue-rgb: rgb(36, 115, 226);
+    --soft-shadow-rgba: rgba(0, 0, 0, 0.2);
+
     --alice-blue-hsl: hsl(208, 100%, 97%);
-    --alice-blue-hsl-hover: hsl(208, 100%, 95%);
-    --alice-blue-hsl-borders: hsl(208, 100%, 93%);
+    --alice-blue-hover-hsl: hsl(208, 100%, 95%);
+    --alice-blue-borders-hsl: hsl(208, 100%, 93%);
+
+    --input-borders-hex: #cccccc;
+
 }
 
 body { /* the body element (master element, top of hierachy) */
