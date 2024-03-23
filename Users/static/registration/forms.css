@@ -1,14 +1,14 @@
 form{
-    background-color: white;
-    box-shadow: 0 4px 8px 0  rgba(0, 0, 0, 0.2);
+    background-color: var(--white);
+    box-shadow: 0 4px 8px 0 var(--soft-shadow-rgba);
 
     width: 40ch;
 
     box-sizing: border-box;
 
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     display: flex;
     flex-direction: column;
@@ -36,14 +36,13 @@ form{
     flex-grow: 1;
     box-sizing: border-box;
     
-    border: #cccccc solid 1px;
+    border: var(--input-borders-hex) solid 1px;
     border-radius: 3px;
 
-
+    
     padding: 5px;
 
     width: 100%;
-
 
     overflow-wrap: break-word;
 
@@ -53,7 +52,6 @@ form{
     font-size: 15px;
     padding: 5px;
     padding-left: 7px;
-
 }
 
 label {
@@ -64,17 +62,38 @@ label {
 }
 
 .btn-success {
-    color: white;
-    background-color: rgb(8, 148, 108);
+    color: var(--white);
+    background-color: var(--submit-btn-rgb);
     font-size: x-large;
     border: none;
     padding: 10px 0 10px 0;
 }
 
-.btn-success:hover {
-    background-color: rgb(8, 116, 85);
-    transition: 1s;
+.password {
+    padding-right: 35%;
+    z-index: 2;
 }
+
+.password-div {
+    position: relative;
+}
+
+.show-password {
+    background-color: var(--white);
+    color: var(--link-blue-rgb);
+
+    border: solid white 1px;
+    border-left: solid var(--input-borders-hex) 1px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+
+    position: absolute;
+    right: 0.3%;
+    top: 22px;
+
+    height: 29px;
+    z-index: 1;
+} /* sort out on clicked */
 
 hr {
     margin-bottom: -0.1rem;

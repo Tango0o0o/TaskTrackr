@@ -41,9 +41,10 @@
                         {{form.username}}
                     </div>
 
-                    <div>
+                    <div class="password-div">
                         <label for="{{form.password1.id}}">{{form.password1.label}}</label>
                         {{form.password1}}
+                        <button type="button" class="show-password" id="show-password-button">Show password</button>
                     </div>
                     
                 </div>
@@ -55,3 +56,7 @@
         </div>
     {%endif%}
 {%endblock%}
+
+{% block javascript %}
+  <script src="/static/registration/javascript/forms.js"></script>
+{% endblock %}

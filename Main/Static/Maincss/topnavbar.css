@@ -8,7 +8,7 @@ nav {
     flex-wrap: wrap; /* for smaller screens allow wrapping */
     gap: 1%; /* Gap between each flex item */
     
-    border-bottom: 2px solid var(--alice-blue-hsl-borders);
+    border-bottom: 2px solid var(--alice-blue-borders-hsl);
 
     position: relative; /* For media query */
     max-width: 100%;
@@ -23,7 +23,7 @@ nav a {
 
 /* visual hovering indicator */
 nav a:hover{
-    background-color: var(--alice-blue-hsl-hover);
+    background-color: var(--alice-blue-borders-hsl);
     transition: 0.5s;
 }
 
